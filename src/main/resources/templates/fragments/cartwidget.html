@@ -1,0 +1,50 @@
+<!-- fragments/cartwidget.html -->
+<div th:fragment="cartwidget">
+    <div id="cart-widget-overlay" class="cart-overlay" onclick="closeCartWidget()"></div>
+
+    <div id="cart-widget" class="cart-widget">
+        <div class="cart-header">
+            <h2 th:text="${cartWidget.title}"></h2>
+            <button class="close-btn" onclick="closeCartWidget()">×</button>
+        </div>
+
+        <div class="cart-items" id="cart-items">
+            <div class="cart-item" th:each="item : ${cartItems}" th:if="${cartItems != null}">
+                <img th:src="@{${item.imageUrl}}" alt="Item" class="cart-item-image" />
+                <div class="cart-item-details">
+                    <p class="cart-item-name" th:text="${item.name}"></p>
+                    <div class="cart-item-price">
+                        <span th:text="${cartWidget.currencySymbol}"></span>
+                        <span th:text="${item.price}"></span>
+                    </div>
+
+                    <div class="quantity-controls">
+                        <button class="quantity-btn"
+                                th:text="${cartWidget.quantity.decreaseButton}"
+                                th:onclick="'decreaseQuantity(' + ${item.id} + ')'"></button>
+                        <div class="quantity-number" th:text="${item.quantity}"></div>
+                        <button class="quantity-btn"
+                                th:text="${cartWidget.quantity.increaseButton}"
+                                th:onclick="'increaseQuantity(' + ${item.id} + ')'"></button>
+                    </div>
+                </div>
+            </div>
+
+            <p class="empty-cart-msg"
+               th:if="${cartItems == null or #lists.isEmpty(cartItems)}"
+               th:text="${cartWidget.emptyMessage}"></p>
+        </div>
+
+        <div class="cart-total">
+            <span th:text="${cartWidget.totalLabel}"></span>
+            <span class="cart-total-value">
+                <span th:text="${cartWidget.currencySymbol}"></span>
+                <span th:text="${total}"></span>
+            </span>
+        </div>
+
+        <div class="cart-actions">
+            <a href="/checkout" class="checkout-btn" th:text="${cartWidget.checkoutButton}"></a>
+        </div>
+    </div>
+</div>

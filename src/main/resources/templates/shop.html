@@ -1,0 +1,71 @@
+<!-- templates/shop.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::content})}">
+
+<body>
+  <!-- Main Content Fragment -->
+  <div th:fragment="content">
+    <main class="shop-page">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2>Filter</h2>
+        <div class="filter-section">
+          <label><input type="checkbox" /> On sale</label><br />
+          <label><input type="checkbox" /> In stock</label>
+        </div>
+
+        <h3>Top Rated Products</h3>
+        <div class="top-rated">
+          <div class="top-product">
+            <img src="/images/airfryer.jpg" alt="Top Product">
+            <div>
+              <p>Air Fryer 3.2L</p>
+              <p class="old-price">€280.00</p>
+              <p class="new-price">€144.00</p>
+            </div>
+          </div>
+          <!-- Add more static/dynamic top-rated items -->
+        </div>
+      </aside>
+
+      <!-- Product Grid -->
+      <section class="product-section">
+        <div class="section-header">
+          <h1>Our Product Range</h1>
+          <div class="sort-options">
+            <label>Show:
+              <select>
+                <option>9</option>
+                <option>12</option>
+                <option>18</option>
+              </select>
+            </label>
+            <label>Sort by:
+              <select>
+                <option>Latest</option>
+                <option>Price: Low to High</option>
+                <option>Price: High to Low</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div class="product-grid">
+          <div class="product-card" th:each="product : ${products}">
+            <img th:src="@{${product.imageUrl}}" alt="Product Image" class="product-img" />
+            <div class="product-info">
+              <h2 th:text="${product.name}">Product Name</h2>
+              <p th:text="${product.description}">Description</p>
+              <div class="product-actions">
+                <button class="add-to-cart-btn">Add to Cart</button>
+                <i class="fas fa-heart fav-icon"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

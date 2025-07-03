@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout(~{::content})">
+<body>
+<div th:fragment="content">
+
+  <!-- ===== Top Image Below Header ===== -->
+  <section class="contact-image-header">
+    <img src="/images/contact-banner.jpg" alt="Contact Page Banner" style="width: 100%; max-height: 400px; object-fit: cover;">
+  </section>
+
+  <!-- ===== Contact Heading & Info ===== -->
+  <section class="about-zigzag">
+    <div style="max-width: 900px; margin: auto; text-align: center;" class="animate fade-in-down">
+      <h2 style="color: #c62828;">Contact Us</h2>
+      <p>Feel free to reach out to us for product inquiries, bulk orders, or general information. We are happy to assist you.</p>
+
+      <div style="text-align: left; margin-top: 30px;">
+        <p><strong>📍 Address:</strong> WireTech Industries Pvt. Ltd., Industrial Zone, Delhi – 110092</p>
+        <p><strong>📞 Phone:</strong> +91-9876543210</p>
+        <p><strong>✉️ Email:</strong> sales@wiretech.in</p>
+        <p><strong>🕘 Working Hours:</strong> Mon – Sat, 9:00 AM – 6:00 PM</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Enquiry Form ===== -->
+  <section class="about-zigzag alt-bg">
+    <div style="max-width: 700px; margin: auto;" class="animate fade-in-up">
+      <h2 style="text-align: center; color: #c62828;">Send an Enquiry</h2>
+      <form th:action="@{/enquiry}" method="post" class="enquiry-form" style="margin-top: 20px;">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="phone" placeholder="Phone Number" required>
+        <textarea name="message" placeholder="Message or Product Inquiry" rows="5"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Embedded Image or Map ===== -->
+  <section class="about-zigzag">
+    <div style="max-width: 900px; margin: auto; text-align: center;" class="animate fade-in-up">
+      <h2 style="color: #c62828;">Our Location</h2>
+      <p>Find us at our manufacturing unit in East Delhi.</p>
+      <div style="margin-top: 20px;">
+        <img src="/images/map-placeholder.jpg" alt="Location Map" style="width: 100%; max-width: 800px; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.1);">
+        <!-- Optional: Replace above <img> with a Google Maps <iframe> if needed -->
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

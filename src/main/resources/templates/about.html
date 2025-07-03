@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout(~{::content})">
+<body>
+<div th:fragment="content">
+
+  <!-- ===== Video Container ===== -->
+  <section class="video-container">
+    <video controls autoplay muted width="100%" height="auto" class="company-video">
+      <source th:src="@{${about.videoUrl}}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- ===== Zigzag Sections (Dynamic) ===== -->
+  <section th:each="section : ${about.sections}"
+           class="about-zigzag"
+           th:classappend="${section.direction == 'reverse'} ? ' alt-bg'">
+    <div class="zigzag-container" th:classappend="${section.direction == 'reverse'} ? ' reverse'">
+
+      <!-- Image -->
+      <div class="zigzag-image" th:if="${section.image}">
+        <img th:src="@{${section.image}}" th:alt="${section.title}">
+      </div>
+
+      <!-- Textual Content -->
+      <div class="zigzag-text animate"
+           th:classappend="${section.direction == 'reverse'} ? ' fade-in-left' : ' fade-in-right'">
+        <h2 th:text="${section.title}">Section Title</h2>
+
+        <p th:if="${section.text}" th:text="${section.text}"></p>
+
+        <!-- Bullet List -->
+        <ul th:if="${section.list}">
+          <li th:each="item : ${section.list}" th:utext="${item}"></li>
+        </ul>
+
+        <!-- Team Section -->
+        <div class="team-grid" th:if="${section.team}">
+          <div th:each="member : ${section.team}" class="team-member">
+            <img th:src="@{${member.image}}" th:alt="${member.name}">
+            <h4 th:text="${member.name}"></h4>
+            <p th:text="${member.title}"></p>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <blockquote th:each="quote : ${section.testimonials}" th:text="${quote}"></blockquote>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

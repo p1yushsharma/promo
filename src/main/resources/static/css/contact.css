@@ -1,0 +1,90 @@
+/* ===== Top Image Banner ===== */
+.contact-image-header img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Contact Section General Styling ===== */
+.about-zigzag {
+  padding: 60px 20px;
+}
+
+.alt-bg {
+  background-color: #f7f7f7;
+}
+
+/* ===== Enquiry Form Styling ===== */
+.enquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.enquiry-form button {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.enquiry-form button:hover {
+  background-color: #a91414;
+}
+
+/* ===== Fade-in Animations ===== */
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.fade-in-down {
+  animation-name: fadeInDown;
+}
+
+.fade-in-up {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .enquiry-form {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .about-zigzag {
+    padding: 40px 10px;
+  }
+}

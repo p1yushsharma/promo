@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="layout :: layout(~{::content})">
+<body>
+<div th:fragment="content">
+
+  <!-- ===== Image Grid ===== -->
+  <section class="image-grid-section">
+    <div class="image-grid">
+      <div class="grid-item" th:each="img : ${home.imageGrid}">
+        <img th:src="@{${img}}" alt="Promo Image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Category Carousel ===== -->
+  <section class="category-carousel-wrapper">
+    <h2 class="carousel-title" th:text="${home.categories.title}">Our Categories</h2>
+    <div class="carousel-grid">
+      <div class="category-item" th:each="cat : ${home.categories.items}">
+        <img th:src="@{${cat.image}}" th:alt="${cat.label}" class="carousel-tile" />
+        <div class="category-label" th:text="${cat.label}">Category</div>
+        <div class="category-count" th:text="${cat.count}">0</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

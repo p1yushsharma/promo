@@ -1,0 +1,39 @@
+<!-- layout.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(content)">
+<head>
+    <title th:text="${pageTitle} ?: ${layout.siteTitle}"></title>
+
+    <!-- Base Styles (from YAML config) -->
+    <link rel="stylesheet" th:href="@{${layout.mainCss}}" />
+    <link rel="stylesheet" th:href="@{${layout.productCss}}" />
+    <link rel="stylesheet" th:href="${layout.fontAwesome}" />
+
+    <!-- Page-Specific CSS -->
+    <link rel="stylesheet" th:if="${pageId == 'about'}" th:href="@{/css/about.css}" />
+    <link rel="stylesheet" th:if="${pageId == 'contact'}" th:href="@{/css/contact.css}" />
+    <link rel="stylesheet" th:if="${pageId == 'shop'}" th:href="@{/css/shop.css}" />
+    <link rel="stylesheet" th:if="${pageId == 'shop'}" th:href="@{/css/products.css}" />
+
+    <!-- JS Scripts from YAML -->
+    <script th:src="@{${layout.imageLoaderJs}}" defer></script>
+    <script th:src="@{${layout.loginJs}}" defer></script>
+    <script th:src="@{${layout.cartJs}}" defer></script>
+
+    <!-- Page-Specific JS -->
+    <th:block th:if="${pageId == 'about'}">
+        <script th:src="@{/js/about.js}" defer></script>
+    </th:block>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class="content" th:insert="${content}"></div>
+    <div th:replace="fragments/footer :: footer"></div>
+    <div th:replace="fragments/loginwidget :: loginWidget"></div>
+    <div th:replace="fragments/cartwidget :: cartwidget"></div>
+</body>
+</html>

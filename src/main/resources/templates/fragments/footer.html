@@ -1,0 +1,34 @@
+<div th:fragment="footer">
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h3 th:text="${footer.contactInfo.workTime}"></h3>
+                <p th:text="${footer.contactInfo.days}"></p>
+                <br>
+                <p><strong>Phone:</strong> <span th:text="${footer.contactInfo.phone}"></span></p>
+                <p th:text="${footer.contactInfo.company}"></p>
+                <p><strong>GST:</strong> <span th:text="${footer.contactInfo.gst}"></span></p>
+                <p><strong>Email:</strong> <span th:text="${footer.contactInfo.email}"></span></p>
+            </div>
+
+            <div class="footer-col">
+                <ul>
+                    <li th:each="link : ${footer.policyLinks}">
+                        <a th:href="${link.url}" th:text="${link.name}"></a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col payment-icons">
+                <p>We Accept:</p>
+                <img th:each="icon : ${footer.paymentIcons}"
+                 th:src="${icon.imagePath}"
+                 th:alt="${icon.altText}" />
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p th:text="${footer.copyright}"></p>
+        </div>
+    </footer>
+</div>

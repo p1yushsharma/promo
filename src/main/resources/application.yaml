@@ -1,0 +1,165 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  autoconfigure:
+    exclude: 
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+server:
+  port: 8080
+
+promo:
+  title: "Berlinger Haus"
+  tagline: "Premium Kitchen Appliances for Every Home"
+  hero-image: "/images/berlinger-hero.jpg"
+header:
+  topStrip:
+    followText: "Follow us:"
+    socialLinks:
+      - name: "facebook"
+        iconClass: "fab fa-facebook"
+        url: "https://facebook.com/yourcompany"
+      - name: "twitter"
+        iconClass: "fab fa-twitter"
+        url: "https://twitter.com/yourcompany"
+      - name: "instagram"
+        iconClass: "fab fa-instagram"
+        url: "https://instagram.com/yourcompany"
+
+  logoPath: "/images/logo.png"
+  searchPlaceholder: "Search products..."
+  loginButtonText: "Login / Signup"
+  cartButtonText: "Cart"
+footer:
+  contactInfo:
+    workTime: "WORK TIME: FROM 9:00 TO 18:00"
+    days: "O'CLOCK FROM MONDAY TO FRIDAY"
+    phone: "+91-9876543210"
+    company: "WIRETECH INDUSTRIES PVT LTD"
+    gst: "07ABCDE1234F1Z5"
+    email: "support@wiretech.com"
+
+  policyLinks:
+    - name: "DELIVERY & RETURNS"
+      url: "#"
+    - name: "TERMS & CONDITIONS"
+      url: "#"
+    - name: "PRIVACY POLICY"
+      url: "#"
+    - name: "WARRANTY POLICY"
+      url: "#"
+    - name: "CONTACT US"
+      url: "#"
+
+  paymentIcons:
+    - imagePath: "/images/payments/visa.png"
+      altText: "Visa"
+    - imagePath: "/images/payments/mastercard.png"
+      altText: "MasterCard"
+    - imagePath: "/images/payments/rupay.png"
+      altText: "Rupay"
+    - imagePath: "/images/payments/paytm.png"
+      altText: "Paytm"
+    - imagePath: "/images/payments/gpay.png"
+      altText: "Google Pay"
+
+  copyright: "© 2025 WireTech Industries. All rights reserved."
+navbar:
+  links:
+    - name: "Home"
+      url: "/home"
+    - name: "Products"
+      url: "/products"
+    - name: "Shop"
+      url: "/shop"
+    - name: "About Us"
+      url: "/aboutus"
+    - name: "Contact Us"
+      url: "/contactus"
+login:
+  modal:
+    loginTabText: "Login"
+    signupTabText: "Signup"
+    loginForm:
+      emailPlaceholder: "Email"
+      passwordPlaceholder: "Password"
+      buttonText: "Login"
+    signupForm:
+      namePlaceholder: "Name"
+      emailPlaceholder: "Email"
+      passwordPlaceholder: "Password"
+      buttonText: "Signup"
+cart:
+  widget:
+    title: "Your Cart"
+    emptyMessage: "No items in your cart."
+    totalLabel: "Total:"
+    checkoutButton: "Proceed to Checkout"
+    currencySymbol: "₹"
+    quantity:
+      increaseButton: "+"
+      decreaseButton: "-"
+layout:
+  siteTitle: "Promo Site"
+  defaultPageTitle: "Promo Site"
+  mainCss: "/css/style.css"
+  productCss: "/css/products.css"
+  fontAwesome: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+  imageLoaderJs: "/js/image-loader.js"
+  loginJs: "/js/login-widget.js"
+  cartJs: "/js/cart.js"
+
+home:
+  imageGrid:
+    - /images/grid_photo_1.jpg
+    - /images/grid_photo_2.jpg
+    - /images/grid_photo_3.jpg
+  categories:
+    title: "Top Wire Categories"
+    items:
+      - label: "POWER CABLES"
+        image: "/images/product_4.jpg"
+        count: "120 products"
+      - label: "FIBER OPTIC"
+        image: "/images/product_1.jpg"
+        count: "95 products"
+      - label: "DATA CABLES"
+        image: "/images/product_2.jpg"
+        count: "60 products"
+about:
+  videoUrl: /videos/company_intro.mp4
+  sections:
+    - title: About WireTech Industries
+      text: WireTech Industries Pvt. Ltd. is a leading manufacturer...
+      image: /images/company.jpg
+      direction: normal
+
+    - title: Our Mission & Values
+      direction: reverse
+      list:
+        - Commitment to quality and safety
+        - Innovation in design and materials
+        - Environmentally conscious manufacturing
+        - Customer-centric approach
+      image: /images/mission.jpg
+
+    - title: Our Leadership
+      direction: normal
+      team:
+        - name: Rajesh Kumar
+          title: Founder & CEO
+          image: /images/ceo.jpg
+        - name: Anjali Sharma
+          title: Chief Technology Officer
+          image: /images/cto.jpg
+        - name: Manoj Verma
+          title: Chief Operating Officer
+          image: /images/coo.jpg
+      image: /images/team.jpg
+
+    - title: Client Testimonials
+      direction: reverse
+      testimonials:
+        - "WireTech's quality and delivery are unmatched. They’ve helped streamline our operations. – Siemens"
+        - "Our go-to supplier for custom cable solutions. – L&T Construction"
+      image: /images/testimonials.jpg

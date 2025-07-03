@@ -1,0 +1,24 @@
+<div th:fragment="loginWidget">
+    <div id="login-widget-overlay" class="login-overlay" onclick="closeLoginWidget()"></div>
+
+    <div id="login-widget" class="login-widget">
+        <div class="login-header">
+            <span id="login-tab" class="tab active" th:text="${loginModal.loginTabText}" onclick="switchTab('login')">Login</span>
+            <span id="signup-tab" class="tab" th:text="${loginModal.signupTabText}" onclick="switchTab('signup')">Signup</span>
+            <button class="close-btn" onclick="closeLoginWidget()">×</button>
+        </div>
+        <div class="login-body">
+            <form id="login-form" class="form visible">
+                <input type="email" th:placeholder="${loginModal.loginForm.emailPlaceholder}" />
+                <input type="password" th:placeholder="${loginModal.loginForm.passwordPlaceholder}" />
+                <button type="submit" th:text="${loginModal.loginForm.buttonText}">Login</button>
+            </form>
+            <form id="signup-form" class="form">
+                <input type="text" th:placeholder="${loginModal.signupForm.namePlaceholder}" />
+                <input type="email" th:placeholder="${loginModal.signupForm.emailPlaceholder}" />
+                <input type="password" th:placeholder="${loginModal.signupForm.passwordPlaceholder}" />
+                <button type="submit" th:text="${loginModal.signupForm.buttonText}">Signup</button>
+            </form>
+        </div>
+    </div>
+</div>
